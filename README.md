@@ -11,8 +11,8 @@ what needs to be improved:
 
 1. Task: [link](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/intro.md)
 2. Screenshot:
-![image](https://github.com/rolling-scopes-school/tati-moon-ANGULAR2024Q3/assets/170366343/ca02f577-dc60-4f07-8128-6a98834e4943)
-3. Done 2024-07-06 / deadline 2024-07-09 01:59
+![image](img/1.1.png)
+3. Done 2024-07-06 / deadline 2024-07-09
 4. Score: 70 / 70
 
 - [x] Generated a new Angular project using ng-cli `ng new`
@@ -66,7 +66,7 @@ ____________
 
 1. Task 2: [link](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/components-directives-pipes.md)
 2. Screenshot:
-![image](https://github.com/rolling-scopes-school/tati-moon-ANGULAR2024Q3/assets/170366343/c0895899-25b3-4172-a485-fd09e2e3ccd9)
+![image](img/2.1.pmg)
 3. Done 08.07.2024 / deadline 09.07.2024
 6. Score: 100 /  100
 - [x] Main layout is implemented (+10)
@@ -85,15 +85,15 @@ ____________
 1. Task3: Modules & Services. Routing  [link](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/modules-services-routing.md/)
 2. Screenshots:
 index page:
-![image](https://github.com/user-attachments/assets/e2b23c8e-49db-4ad4-a518-489dfd8efe78)
+![image](img/3.1.png)
 login validation:
-![image](https://github.com/user-attachments/assets/416659eb-1339-40e3-b806-82a3a2db0620)
+![image](img/3.2.png)
 search page:
-![image](https://github.com/user-attachments/assets/b566e1c3-c0ae-491c-8ad4-c7e2c3e2874e)
+![image](img/3.3.png)
 detail information:
-![image](https://github.com/user-attachments/assets/bde990e7-514c-4576-a736-076a1d40588f)
+![image](img/3.4.png)
 404 page:
-![image](https://github.com/user-attachments/assets/ea5d44ad-98ca-4ce0-a04c-c204a5ff2a28)
+![image](img/3.5.png)
 
 3. Done 22.07.2024 / deadline 23.07.2024
 4. Score: 100 / 100
@@ -108,16 +108,15 @@ ____________
 1. Task 4: forms [link](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/forms.md)
 2. Screenshot:
 invalid login page:
-![image](https://github.com/user-attachments/assets/ded7078e-7605-4cb2-bc0d-bb64c8f684f0)
+![image](img/4.1.png)
 login page:
-![image](https://github.com/user-attachments/assets/7602f43e-2db1-44ea-a478-3e6877d775c8)
-
+![image](img/4.2.png)
 invalid admin page
-![image](https://github.com/user-attachments/assets/7fa77a03-88c6-455d-83e9-a4b55a0e5da3)
-![image](https://github.com/user-attachments/assets/a1f0b792-b2d0-43e0-89ce-9c7633877275)
+![image](img/4.3.png)
+![image](img/4.4.png)
 valid admin page
-![image](https://github.com/user-attachments/assets/1144941a-05a0-41cd-ba34-891693042f03)
-![image](https://github.com/user-attachments/assets/2af0d171-5c46-4408-bfbb-6d9d27964d4e)
+![image](img/4.5.png)
+![image](img/4.6.png)
 
 4. Done 24.07.2024 / deadline 30.07.2024
 5. Score: 100 / 110
@@ -134,7 +133,7 @@ ____________
 
 1. Task 5: rx js observables [link](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/rxjs-observables-http.md)
 2. Screenshot:
-![image](https://github.com/user-attachments/assets/2ff792b2-d699-4f73-8ee6-7c0c960ae0b7)
+![image](img/5.1.png)
 3. Done 29.07.2024 / deadline 30.07.2024
 4. Score: 100 / 100
   - [x] Search input debounce is implemented (+15)
@@ -143,7 +142,7 @@ ____________
   - [x] Detailed information page uses a call to the YouTube API (+30)
   - [x] HTTP interceptor is used to pass the token and the base API URL (+10)
 
-![image](https://github.com/user-attachments/assets/48496589-bab6-4a1a-b726-87928a8b47c9)
+![image](img/5.2.png)
 
 
 ____________
@@ -151,13 +150,13 @@ ____________
 1. Task 6: NgRx [link](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/NgRX.md)
 2. Screenshots:
 header with create custom and favorite buttons:
-![image](https://github.com/user-attachments/assets/c5f27be4-5e58-4ca2-8eb3-4a7fc120f329)
+![image](img/6.1.png)
 list of videos:
-![image](https://github.com/user-attachments/assets/c06bbc64-ca47-402c-b71c-6eccf629fbda)
+![image](img/6.2.png)
 favorites list:
-![image](https://github.com/user-attachments/assets/279fbe24-938e-4472-aad2-91107725382d)
+![image](img/6.3.png)
 pagination
-![image](https://github.com/user-attachments/assets/644d3765-9cac-4d7e-b3db-b63b2e043374)
+![image](img/6.4.png)
 
 
 3. Done 04.08.2024 / deadline 06.08.2024
@@ -177,7 +176,7 @@ ____________
 1. Task 7: Signals [link](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/angular/signals.md)
 2. Screenshot:
 
-![image](https://github.com/user-attachments/assets/204be3ba-addf-4b37-b618-3e818212d442)
+![image](img/7.1.png)
  
 3. Done 05.08.2024 / deadline 06.08.2024
 4. Score: 30 /  30
