@@ -7,9 +7,8 @@ import { CustomButtonComponent } from "../../../../shared/components/custom-butt
     standalone: true,
     imports: [CustomButtonComponent],
     templateUrl: "./favorite-button.component.html",
-    styleUrl: "./favorite-button.component.scss"
+    styleUrl: "./favorite-button.component.scss",
 })
-
 export class FavoriteButtonComponent {
     @Input() favoriteCount: number | null = 0;
 }

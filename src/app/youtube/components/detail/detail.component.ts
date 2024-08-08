@@ -1,12 +1,8 @@
 import { CommonModule, DatePipe } from "@angular/common";
-import {
-    Component, EventEmitter, OnInit, Output
-} from "@angular/core";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { ActivatedRoute, ParamMap, Router } from "@angular/router";
 import { Store } from "@ngrx/store";
-import {
-    catchError, Observable, of, switchMap, tap
-} from "rxjs";
+import { catchError, Observable, of, switchMap, tap } from "rxjs";
 
 import { removeCustomCard } from "../../../redux/actions/custom-cards.actions";
 import {
@@ -18,8 +14,7 @@ import {
     selectIsCustom,
 } from "../../../redux/selectors/custom-cards.selectors";
 import { selectIsFavorite } from "../../../redux/selectors/favorite.selectors";
-import { AddFavoriteButtonComponent }
-    from "../../../shared/components/add-favorite-button/add-favorite-button.component";
+import { AddFavoriteButtonComponent } from "../../../shared/components/add-favorite-button/add-favorite-button.component";
 import { CommentsCountComponent } from "../../../shared/components/comments-count/comments-count.component";
 import { CustomButtonComponent } from "../../../shared/components/custom-button/custom-button.component";
 import { DislikesCountComponent } from "../../../shared/components/dislikes-count/dislikes-count.component";
@@ -67,7 +62,9 @@ export class DetailComponent implements OnInit {
         private getInfoService: GetInformationService,
         private store: Store,
     ) {
-        this.isFavorite$ = this.store.select(selectIsFavorite(this.videoItem?.id));
+        this.isFavorite$ = this.store.select(
+            selectIsFavorite(this.videoItem?.id),
+        );
     }
 
     onLike() {
@@ -80,7 +77,7 @@ export class DetailComponent implements OnInit {
             .pipe(
                 switchMap((params) => this.handleRouteParams(params)),
                 switchMap((id) => this.handleId(id)),
-                catchError(() => this.handleError())
+                catchError(() => this.handleError()),
             )
             .subscribe();
     }
@@ -107,20 +104,22 @@ export class DetailComponent implements OnInit {
                             if (customItem) {
                                 this.videoItem = customItem;
                             }
-                        })
+                        }),
                     );
                 }
                 return this.getInfoService.searchItemById(id).pipe(
                     tap((item) => {
                         if (item) {
                             this.videoItem = item;
-                            this.isFavorite$ = this.store.select(selectIsFavorite(this.videoItem?.id));
+                            this.isFavorite$ = this.store.select(
+                                selectIsFavorite(this.videoItem?.id),
+                            );
                         } else {
                             this.router.navigate(["/404"]);
                         }
-                    })
+                    }),
                 );
-            })
+            }),
         );
     }
 

@@ -28,7 +28,9 @@ export class LoginInfoComponent implements OnInit, OnDestroy {
     isAdmin = false;
     isUserAuthenticated = false;
     login: string | null = null;
-    favoriteCount = toSignal(this.store.select(selectFavoriteCount), { initialValue: 0 });
+    favoriteCount = toSignal(this.store.select(selectFavoriteCount), {
+        initialValue: 0,
+    });
     private authSubscription: Subscription | null = null;
     private adminSubscription: Subscription | null = null;
 
@@ -40,18 +42,22 @@ export class LoginInfoComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.updateAuthStatus();
-        this.authSubscription = this.authService.authState$.subscribe((status) => {
-            this.isUserAuthenticated = status;
-            if (status) {
-                this.login = this.authService.getCurrentUser();
-            } else {
-                this.login = null;
-            }
-        });
+        this.authSubscription = this.authService.authState$.subscribe(
+            (status) => {
+                this.isUserAuthenticated = status;
+                if (status) {
+                    this.login = this.authService.getCurrentUser();
+                } else {
+                    this.login = null;
+                }
+            },
+        );
 
-        this.adminSubscription = this.authService.isAdmin$.subscribe((isAdmin) => {
-            this.isAdmin = isAdmin;
-        });
+        this.adminSubscription = this.authService.isAdmin$.subscribe(
+            (isAdmin) => {
+                this.isAdmin = isAdmin;
+            },
+        );
     }
 
     ngOnDestroy() {

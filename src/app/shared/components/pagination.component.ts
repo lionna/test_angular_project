@@ -1,6 +1,4 @@
-import {
-    Component, Input, OnInit
-} from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
 import { CustomButtonComponent } from "./custom-button/custom-button.component";

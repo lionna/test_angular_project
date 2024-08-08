@@ -19,6 +19,7 @@ export class FavoriteListComponent implements OnInit {
     constructor(private store: Store) {}
 
     ngOnInit(): void {
+        // eslint-disable-next-line @ngrx/no-store-subscription
         this.store.select(selectAllFavorites).subscribe((favorites) => {
             this.favoriteVideos.set(favorites);
         });

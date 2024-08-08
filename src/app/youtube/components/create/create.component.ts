@@ -45,7 +45,9 @@ export class CreateComponent {
             Validators.minLength(VALIDATION_FORM.TITLE_MIN_LENGTH),
             Validators.maxLength(VALIDATION_FORM.TITLE_MAX_LENGTH),
         ]),
-        description: new FormControl("", [Validators.maxLength(VALIDATION_FORM.DESCRIPTION_MAX_LENGTH)]),
+        description: new FormControl("", [
+            Validators.maxLength(VALIDATION_FORM.DESCRIPTION_MAX_LENGTH),
+        ]),
         img: new FormControl("", [Validators.required]),
         link: new FormControl("", [Validators.required]),
         creationDate: new FormControl("", [

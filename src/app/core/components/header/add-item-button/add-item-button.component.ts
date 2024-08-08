@@ -7,8 +7,6 @@ import { CustomButtonComponent } from "../../../../shared/components/custom-butt
     standalone: true,
     imports: [CustomButtonComponent],
     templateUrl: "./add-item-button.component.html",
-    styleUrl: "./add-item-button.component.scss"
+    styleUrl: "./add-item-button.component.scss",
 })
-
-export class AddItemButtonComponent {
-}
+export class AddItemButtonComponent {}

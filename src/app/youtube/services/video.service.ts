@@ -13,7 +13,7 @@ export class VideoService {
         img: string,
         link: string,
         creationDate: string,
-        tags: string[]
+        tags: string[],
     ): CustomVideoItem {
         return {
             link,

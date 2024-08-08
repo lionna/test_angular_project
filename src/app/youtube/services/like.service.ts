@@ -9,8 +9,16 @@ import { updateCounter } from "../../shared/utils/counter-utils";
 export class LikeService {
     videoItemsSignal = signal<VideoItem[]>([]);
 
-    updateLikeStatus(items: VideoItem[], item: VideoItem, isLiked: boolean): VideoItem[] {
-        const updatedItems = items.map((videoItem) => (videoItem.id === item.id ? this.getUpdatedItem(videoItem, isLiked) : videoItem));
+    updateLikeStatus(
+        items: VideoItem[],
+        item: VideoItem,
+        isLiked: boolean,
+    ): VideoItem[] {
+        const updatedItems = items.map((videoItem) =>
+            videoItem.id === item.id
+                ? this.getUpdatedItem(videoItem, isLiked)
+                : videoItem,
+        );
 
         this.videoItemsSignal.set(updatedItems);
         return updatedItems;
@@ -22,8 +30,11 @@ export class LikeService {
             statistics: {
                 ...item.statistics,
                 isLiked,
-                likeCount: updateCounter(item.statistics?.likeCount ?? "0", isLiked)
-            }
+                likeCount: updateCounter(
+                    item.statistics?.likeCount ?? "0",
+                    isLiked,
+                ),
+            },
         };
     }
 

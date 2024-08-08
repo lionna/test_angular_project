@@ -11,15 +11,19 @@ export class UserAuthService {
     private readonly authTokenKey = "authToken";
     private readonly userKey = "userName";
 
-    private authStateSubject = new BehaviorSubject<boolean>(this.isUserAuthenticated());
+    private authStateSubject = new BehaviorSubject<boolean>(
+        this.isUserAuthenticated(),
+    );
     authState$: Observable<boolean> = this.authStateSubject.asObservable();
 
-    private isAdminSubject = new BehaviorSubject<boolean>(this.checkAdminStatus());
+    private isAdminSubject = new BehaviorSubject<boolean>(
+        this.checkAdminStatus(),
+    );
     isAdmin$: Observable<boolean> = this.isAdminSubject.asObservable();
 
     constructor(
         private router: Router,
-        private storageService: BrowserStorageService
+        private storageService: BrowserStorageService,
     ) {}
 
     public isUserAuthenticated(): boolean {

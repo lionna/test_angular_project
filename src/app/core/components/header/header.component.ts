@@ -36,7 +36,8 @@ export class HeaderComponent {
     filterText = "";
     isSearchInitiated = false;
 
-    @ViewChild(SearchInputComponent) searchInputComponent!: SearchInputComponent;
+    @ViewChild(SearchInputComponent)
+    searchInputComponent!: SearchInputComponent;
 
     constructor(
         private sortingService: SortingService,

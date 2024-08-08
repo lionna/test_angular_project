@@ -8,17 +8,23 @@ export interface FavoriteState {
 }
 
 export const initialState: FavoriteState = {
-    favorites: []
+    favorites: [],
 };
 
 export const favoriteReducer = createReducer(
     initialState,
-    on(addFavorite, (state, { video }): FavoriteState => ({
-        ...state,
-        favorites: [...state.favorites, video]
-    })),
-    on(removeFavorite, (state, { videoId }): FavoriteState => ({
-        ...state,
-        favorites: state.favorites.filter((video) => video.id !== videoId)
-    }))
+    on(
+        addFavorite,
+        (state, { video }): FavoriteState => ({
+            ...state,
+            favorites: [...state.favorites, video],
+        }),
+    ),
+    on(
+        removeFavorite,
+        (state, { videoId }): FavoriteState => ({
+            ...state,
+            favorites: state.favorites.filter((video) => video.id !== videoId),
+        }),
+    ),
 );

@@ -12,7 +12,7 @@ export const routes: Routes = [
     {
         path: "",
         component: LoginComponent,
-        pathMatch: "full"
+        pathMatch: "full",
     },
     {
         path: "search",
@@ -21,7 +21,7 @@ export const routes: Routes = [
     },
     {
         path: "login",
-        component: LoginComponent
+        component: LoginComponent,
     },
     {
         path: "detail/:id",
@@ -40,10 +40,10 @@ export const routes: Routes = [
     },
     {
         path: "404",
-        component: NotFoundComponent
+        component: NotFoundComponent,
     },
     {
         path: "**",
-        redirectTo: "/404"
-    }
+        redirectTo: "/404",
+    },
 ];

@@ -9,22 +9,26 @@ export class FavoriteEffects {
     constructor(private actions$: Actions) {}
 
     addFavorite$ = createEffect(
-        () => { return this.actions$.pipe(
-        ofType(addFavorite),
-        tap((action) => {
-          console.log('Added to favorites:', action.video);
-        }),
-      ) },
+        () => {
+            return this.actions$.pipe(
+                ofType(addFavorite),
+                tap((action) => {
+                    console.log("Added to favorites:", action.video);
+                }),
+            );
+        },
         { dispatch: false },
     );
 
     removeFavorite$ = createEffect(
-        () => { return this.actions$.pipe(
-        ofType(removeFavorite),
-        tap((action) => {
-          console.log('Removed from favorites:', action.videoId);
-        }),
-      ) },
+        () => {
+            return this.actions$.pipe(
+                ofType(removeFavorite),
+                tap((action) => {
+                    console.log("Removed from favorites:", action.videoId);
+                }),
+            );
+        },
         { dispatch: false },
     );
 }

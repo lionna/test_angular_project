@@ -7,8 +7,6 @@ import { CustomButtonComponent } from "../custom-button/custom-button.component"
     standalone: true,
     imports: [CustomButtonComponent],
     templateUrl: "./remove-button.component.html",
-    styleUrl: "./remove-button.component.scss"
+    styleUrl: "./remove-button.component.scss",
 })
-export class RemoveButtonComponent {
-
-}
+export class RemoveButtonComponent {}

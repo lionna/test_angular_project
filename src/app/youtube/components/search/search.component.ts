@@ -1,7 +1,5 @@
 import { CommonModule } from "@angular/common";
-import {
-    Component, OnDestroy, OnInit, signal
-} from "@angular/core";
+import { Component, OnDestroy, OnInit, signal } from "@angular/core";
 import { Store } from "@ngrx/store";
 import {
     BehaviorSubject,
@@ -92,6 +90,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.videos$ = combineLatest([
             this.store.select(selectAllVideos),
+            // eslint-disable-next-line @ngrx/avoid-combining-selectors
             this.store.select(selectAllCustomCards),
             this.sortingService.sortingBy$.pipe(startWith(this.sortBy)),
             this.sortingService.sortingOrder$.pipe(startWith(this.sortOrder)),
@@ -112,10 +111,21 @@ export class SearchComponent implements OnInit, OnDestroy {
                         sortBy,
                         sortOrder,
                     );
-                    const allItems = [...customItems, ...sortedItems];
-                    this.totalPages.set(Math.ceil(
-                        allItems.length / this.itemsPerPage(),
-                    ));
+
+                    let allItems = [...customItems, ...sortedItems];
+
+                    if (filterText) {
+                        const lowerCaseFilter = filterText.toLowerCase();
+                        allItems = allItems.filter((item) =>
+                            JSON.stringify(item)
+                                .toLowerCase()
+                                .includes(lowerCaseFilter),
+                        );
+                    }
+
+                    this.totalPages.set(
+                        Math.ceil(allItems.length / this.itemsPerPage()),
+                    );
 
                     const paginatedItems = allItems.slice(
                         (currentPage - 1) * this.itemsPerPage(),
@@ -128,20 +138,22 @@ export class SearchComponent implements OnInit, OnDestroy {
         this.subscriptions.add(
             this.sortingService.searchQuery$
                 .pipe(
-                    switchMap((query) => combineLatest([
-                        this.loading$.pipe(filter((loading) => !loading)),
-                        this.previousQuery$,
-                    ]).pipe(
-                        switchMap(([, previousQuery]) => {
-                            if (query !== previousQuery) {
-                                this.store.dispatch(
-                                    loadYouTubeVideos({ query }),
-                                );
-                                return this.videos$;
-                            }
-                            return this.videos$.pipe(startWith([]));
-                        }),
-                    ),),
+                    switchMap((query) =>
+                        combineLatest([
+                            this.loading$.pipe(filter((loading) => !loading)),
+                            this.previousQuery$,
+                        ]).pipe(
+                            switchMap(([, previousQuery]) => {
+                                if (query !== previousQuery) {
+                                    this.store.dispatch(
+                                        loadYouTubeVideos({ query }),
+                                    );
+                                    return this.videos$;
+                                }
+                                return this.videos$.pipe(startWith([]));
+                            }),
+                        ),
+                    ),
                 )
                 .subscribe(),
         );
@@ -158,16 +170,13 @@ export class SearchComponent implements OnInit, OnDestroy {
         this.subscriptions.unsubscribe();
     }
 
-    fetchSearchItems(query: string): Observable<VideoItem[]> {
-        return this.searchService.fetchSearchItems(query);
-    }
-
     private applyFilter(): void {
         this.filteredItems = this.searchItems;
         if (this.filterText) {
             const lowerCaseFilter = this.filterText.toLowerCase();
-            this.filteredItems = this.filteredItems
-                .filter((item) => JSON.stringify(item).toLowerCase().includes(lowerCaseFilter),);
+            this.filteredItems = this.filteredItems.filter((item) =>
+                JSON.stringify(item).toLowerCase().includes(lowerCaseFilter),
+            );
         }
         this.sortItems();
         this.combineItems();

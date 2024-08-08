@@ -7,8 +7,6 @@ import { CustomButtonComponent } from "../custom-button/custom-button.component"
     standalone: true,
     imports: [CustomButtonComponent],
     templateUrl: "./add-favorite-button.component.html",
-    styleUrl: "./add-favorite-button.component.scss"
+    styleUrl: "./add-favorite-button.component.scss",
 })
-export class AddFavoriteButtonComponent {
-
-}
+export class AddFavoriteButtonComponent {}

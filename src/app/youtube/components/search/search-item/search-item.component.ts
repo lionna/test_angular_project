@@ -1,7 +1,5 @@
 import { CommonModule } from "@angular/common";
-import {
-    Component, EventEmitter, Input, OnInit, Output
-} from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs/internal/Observable";
@@ -12,8 +10,7 @@ import {
     removeFavorite,
 } from "../../../../redux/actions/favorite.actions";
 import { selectIsFavorite } from "../../../../redux/selectors/favorite.selectors";
-import { AddFavoriteButtonComponent }
-    from "../../../../shared/components/add-favorite-button/add-favorite-button.component";
+import { AddFavoriteButtonComponent } from "../../../../shared/components/add-favorite-button/add-favorite-button.component";
 import { CommentsCountComponent } from "../../../../shared/components/comments-count/comments-count.component";
 import { DislikesCountComponent } from "../../../../shared/components/dislikes-count/dislikes-count.component";
 import { FavoriteButtonComponent } from "../../../../shared/components/favorite-button/favorite-button.component";
@@ -54,11 +51,15 @@ export class SearchItemComponent implements OnInit {
         private router: Router,
         private store: Store,
     ) {
-        this.isFavorite$ = this.store.select(selectIsFavorite(this.videoItem?.id));
+        this.isFavorite$ = this.store.select(
+            selectIsFavorite(this.videoItem?.id),
+        );
     }
 
     ngOnInit(): void {
-        this.isFavorite$ = this.store.select(selectIsFavorite(this.videoItem?.id));
+        this.isFavorite$ = this.store.select(
+            selectIsFavorite(this.videoItem?.id),
+        );
     }
 
     onLike() {

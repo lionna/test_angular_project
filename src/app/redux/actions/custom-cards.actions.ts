@@ -4,10 +4,10 @@ import { CustomVideoItem } from "../../shared/interfaces/customVideoItem.interfa
 
 export const addCustomCard = createAction(
     "[Custom Card] Add Custom Card",
-    props<{ video: CustomVideoItem }>()
+    props<{ video: CustomVideoItem }>(),
 );
 
 export const removeCustomCard = createAction(
     "[Custom Card] Remove Custom Card",
-    props<{ videoId: string }>()
+    props<{ videoId: string }>(),
 );
